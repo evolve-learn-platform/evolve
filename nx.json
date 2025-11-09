@@ -18,9 +18,7 @@
     {
       "plugin": "@nx/js/typescript",
       "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
+        "typecheck": { "targetName": "typecheck" },
         "build": {
           "targetName": "build",
           "configName": "tsconfig.lib.json",
@@ -40,18 +38,8 @@
         "watchDepsTargetName": "watch-deps"
       }
     },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    }
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    { "plugin": "@nx/jest/plugin", "options": { "targetName": "test" } }
   ],
   "generators": {
     "@nx/react": {
@@ -61,29 +49,17 @@
         "linter": "none",
         "bundler": "rspack"
       },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "none"
-      }
+      "component": { "style": "css" },
+      "library": { "style": "css", "linter": "none" }
     }
   },
   "targetDefaults": {
-    "test": {
-      "dependsOn": ["^build"]
-    },
+    "test": { "dependsOn": ["^build"] },
     "@nx/rspack:rspack": {
-      "inputs": [
-        "production",
-        "^production",
-        {
-          "env": "NX_MF_DEV_REMOTES"
-        }
-      ],
+      "inputs": ["production", "^production", { "env": "NX_MF_DEV_REMOTES" }],
       "dependsOn": ["^build"],
       "cache": true
     }
-  }
+  },
+  "nxCloudId": "6910b34ec6e5babcc23de840"
 }
