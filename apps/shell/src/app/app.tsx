@@ -1,27 +1,27 @@
 import * as React from 'react';
 import NxWelcome from './nx-welcome';
 import { Link, Route, Routes } from 'react-router-dom';
-import {Remote1Wrapper} from './routes/remote1.wrapper'
-import {Remote2Wrapper} from './routes/remote2.wrapper'
+import { Remote1Wrapper } from './routes/remote1.wrapper';
+import { Remote2Wrapper } from './routes/remote2.wrapper';
 
 export function App() {
   return (
     <React.Suspense fallback={null}>
-       <ul style={{ display: 'flex', gap: '38px' }}>
+      <ul style={{ display: 'flex', gap: '38px' }}>
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/remote1">Remote1</Link>
+          <Link to="/animals">Животные</Link>
         </li>
         <li>
-          <Link to="/remote2">Remote2</Link>
+          <Link to="/things">Вещи</Link>
         </li>
       </ul>
       <Routes>
         <Route path="/" element={<NxWelcome title="shell" />} />
-        <Route path="/remote1" element={<Remote1Wrapper />} />
-        <Route path="/remote2" element={<Remote2Wrapper />} />
+        <Route path="/animals" element={<Remote1Wrapper />} />
+        <Route path="/things" element={<Remote2Wrapper />} />
       </Routes>
     </React.Suspense>
   );
