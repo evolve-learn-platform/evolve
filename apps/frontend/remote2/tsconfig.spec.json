@@ -1,7 +1,8 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/jest",
+    "ignoreDeprecations": "6.0",
     "jsx": "react-jsx",
     "types": [
       "jest",
