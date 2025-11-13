@@ -4,13 +4,16 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/shell"
+      "path": "./apps/frontend/shell"
     },
     {
-      "path": "./apps/remote1"
+      "path": "./apps/frontend/remote1"
     },
     {
-      "path": "./apps/remote2"
+      "path": "./apps/frontend/remote2"
+    },
+    {
+      "path": "./shared"
     }
   ]
 }

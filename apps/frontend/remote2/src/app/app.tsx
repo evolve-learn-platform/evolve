@@ -1,4 +1,6 @@
+import { EvolvePlatformSharedUi } from '@evolve-platform/shared-ui';
 import { useEffect, useState } from 'react';
+// import { EvolvePlatformSharedUi } from '@evolve-platform/shared-ui';
 type Item = {
   id: number;
   name: string;
@@ -17,6 +19,7 @@ export function App() {
 
   return (
     <div>
+      <EvolvePlatformSharedUi />
       <h2>Список вещей:</h2>
       {things.length === 0 ? (
         <p>Загрузка...</p>

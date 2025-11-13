@@ -7,13 +7,15 @@
     "start:backend": "nx run backend:run",
     "start": "npm-run-all --parallel start:frontend start:backend"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "6.29.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
     "@eslint/js": "^9.8.0",
     "@module-federation/enhanced": "^0.18.0",
     "@nx/eslint": "22.0.1",
@@ -23,6 +25,7 @@
     "@nx/module-federation": "22.0.1",
     "@nx/react": "22.0.1",
     "@nx/rspack": "22.0.1",
+    "@nx/vite": "22.0.1",
     "@nx/web": "22.0.1",
     "@nx/workspace": "22.0.1",
     "@rspack/cli": "^1.5.0",
@@ -39,6 +42,9 @@
     "@types/node": "^20.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "@vitest/ui": "^3.0.0",
+    "ajv": "^8.0.0",
     "babel-jest": "^30.0.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
@@ -49,6 +55,8 @@
     "jest": "^30.0.2",
     "jest-environment-jsdom": "^30.0.2",
     "jest-util": "^30.0.2",
+    "jiti": "2.4.2",
+    "jsdom": "~22.1.0",
     "npm-run-all": "^4.1.5",
     "nx": "22.0.1",
     "prettier": "^2.6.2",
@@ -57,9 +65,27 @@
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
-    "typescript-eslint": "^8.40.0"
+    "typescript-eslint": "^8.40.0",
+    "verdaccio": "^6.0.5",
+    "vite": "^7.0.0",
+    "vite-plugin-dts": "~4.5.0",
+    "vitest": "^3.0.0"
   },
   "workspaces": [
-    "apps/*"
-  ]
+    "apps/*",
+    "shared"
+  ],
+  "nx": {
+    "includedScripts": [],
+    "targets": {
+      "local-registry": {
+        "executor": "@nx/js:verdaccio",
+        "options": {
+          "port": 4873,
+          "config": ".verdaccio/config.yml",
+          "storage": "tmp/local-registry/storage"
+        }
+      }
+    }
+  }
 }
